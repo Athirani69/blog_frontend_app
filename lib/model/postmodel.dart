@@ -4,66 +4,42 @@
 
 import 'dart:convert';
 
-List<Blog> blogFromJson(String str) => List<Blog>.from(json.decode(str).map((x) => Blog.fromJson(x)));
+Blog blogFromJson(String str) => Blog.fromJson(json.decode(str));
 
-String blogToJson(List<Blog> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String blogToJson(Blog data) => json.encode(data.toJson());
 
 class Blog {
-  String id;
-  UserId userId;
-  String post;
-  DateTime postedDate;
-  int v;
-
-  Blog({
-    required this.id,
-    required this.userId,
-    required this.post,
-    required this.postedDate,
-    required this.v,
-  });
-
-  factory Blog.fromJson(Map<String, dynamic> json) => Blog(
-    id: json["_id"],
-    userId: UserId.fromJson(json["userId"]),
-    post: json["post"],
-    postedDate: DateTime.parse(json["postedDate"]),
-    v: json["__v"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "_id": id,
-    "userId": userId.toJson(),
-    "post": post,
-    "postedDate": postedDate.toIso8601String(),
-    "__v": v,
-  };
-}
-
-class UserId {
   String name;
   String mob;
   String adrs;
+  String pincode;
   String email;
+  String pass;
 
-  UserId({
+  Blog({
     required this.name,
     required this.mob,
     required this.adrs,
+    required this.pincode,
     required this.email,
+    required this.pass,
   });
 
-  factory UserId.fromJson(Map<String, dynamic> json) => UserId(
+  factory Blog.fromJson(Map<String, dynamic> json) => Blog(
     name: json["name"],
     mob: json["mob"],
     adrs: json["adrs"],
+    pincode: json["pincode"],
     email: json["email"],
+    pass: json["pass"],
   );
 
   Map<String, dynamic> toJson() => {
     "name": name,
     "mob": mob,
     "adrs": adrs,
+    "pincode": pincode,
     "email": email,
+    "pass": pass,
   };
 }
