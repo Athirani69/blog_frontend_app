@@ -8,45 +8,61 @@ class menu extends StatefulWidget {
 }
 
 class _menuState extends State<menu> {
-  String email="",pass="";
+
   TextEditingController mail=new TextEditingController();
   TextEditingController pas=new TextEditingController();
+  void Sigin()
+  {
+    print("email :" + mail.text);
+    print("password :"+pas.text);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("HOME PAGE"),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  Colors.limeAccent.withOpacity(.3),
-                  Colors.black.withOpacity(.2)
-                ]
-            )
-        ),
-        padding: EdgeInsets.all(15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: mail,
-              decoration: InputDecoration(
-                  labelText: ("Enter emailid"),
-                  border: OutlineInputBorder()
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Colors.limeAccent.withOpacity(.3),
+                    Colors.black.withOpacity(.2)
+                  ]
+              )
+          ),
+          padding: EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: mail,
+                decoration: InputDecoration(
+                    labelText: ("Enter emailid"),
+                    border: OutlineInputBorder()
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              controller: pas,
-              decoration: InputDecoration(
-                  labelText: ("Enter Password"),
-                  border: OutlineInputBorder()
+              SizedBox(height: 10),
+              TextField(
+                controller: pas,
+                decoration: InputDecoration(
+                    labelText: ("Enter Password"),
+                    border: OutlineInputBorder()
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            SizedBox(
+              SizedBox(height: 20),
+              SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder()
+                      ),
+                      onPressed: Sigin, child: Text("SIGN IN",style: TextStyle(color: Colors.limeAccent),))),
+              SizedBox(height: 10,),
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -54,21 +70,11 @@ class _menuState extends State<menu> {
                         shape: RoundedRectangleBorder()
                     ),
                     onPressed: (){
-
-                    }, child: Text("SIGN IN",style: TextStyle(color: Colors.limeAccent),))),
-            SizedBox(height: 10,),
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder()
-                  ),
-                  onPressed: (){
-
-                  }, child: Text("SIGN UP",style: TextStyle(color: Colors.limeAccent),)),
-            )
-          ],
+        
+                    }, child: Text("SIGN UP",style: TextStyle(color: Colors.limeAccent),)),
+              )
+            ],
+          ),
         ),
       ),
     );
