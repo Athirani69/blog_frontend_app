@@ -1,3 +1,4 @@
+import 'package:blogapp/service/service.dart';
 import 'package:flutter/material.dart';
 
 class signup extends StatefulWidget {
@@ -24,6 +25,16 @@ class _signupState extends State<signup> {
     print("Pincode :"+pin.text);
     print("Email :"+email.text);
     print("Password :"+pas.text);
+
+    final rsp=Api().senddata(name.text, age.text, mob.text, adrs.text, pin.text, email.text, pas.text);
+    if(rsp["status"]: "success")
+      {
+        print("added");
+      }
+      else
+        {
+          print("failed");
+        }
 
   }
   @override
