@@ -1,3 +1,4 @@
+import 'package:blogapp/Pages/register.dart';
 import 'package:flutter/material.dart';
 
 class menu extends StatefulWidget {
@@ -25,14 +26,7 @@ class _menuState extends State<menu> {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.limeAccent.withOpacity(.3),
-                    Colors.black.withOpacity(.2)
-                  ]
-              )
-          ),
+
           padding: EdgeInsets.all(15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +64,7 @@ class _menuState extends State<menu> {
                         shape: RoundedRectangleBorder()
                     ),
                     onPressed: (){
-        
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>signup()));
                     }, child: Text("SIGN UP",style: TextStyle(color: Colors.limeAccent),)),
               )
             ],
