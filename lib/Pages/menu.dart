@@ -8,6 +8,9 @@ class menu extends StatefulWidget {
 }
 
 class _menuState extends State<menu> {
+  String email="",pass="";
+  TextEditingController mail=new TextEditingController();
+  TextEditingController pas=new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +31,7 @@ class _menuState extends State<menu> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: mail,
               decoration: InputDecoration(
                   labelText: ("Enter emailid"),
                   border: OutlineInputBorder()
@@ -35,6 +39,7 @@ class _menuState extends State<menu> {
             ),
             SizedBox(height: 10),
             TextField(
+              controller: pas,
               decoration: InputDecoration(
                   labelText: ("Enter Password"),
                   border: OutlineInputBorder()
